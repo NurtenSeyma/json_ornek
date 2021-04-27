@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Deneme JSON</title>
+
+	<script src="jquery-3.5.1.min.js"></script>
+</head>
+<body>
+
+	<div id="div1"></div>
+	<button id="btn" onClick="test();">Tıkla</button>
+
+	<table id="liste">
+		<thead>
+			<tr>
+				<th>İsim </th>
+				<th>Soyisim </th>
+			</tr>
+		</thead>
+	</table>
+
+
+<script>
+	var kisiler = [{ isim : "Nurten" , soyisim : "AKGÜN" },
+	{isim : "Aylin" , soyisim : "ÖZDEMİR"},
+	{isim : "Nesrin", soyisim : "AYÇİÇEK"},
+	{isim : "Emre" , soyisim : "YÜZ"},
+	{isim : "Ersin", soyisim : "CAN"},
+	{isim : "Erman", soyisim : "KINLI"},
+	{isim : "Erol" , soyisim : "AKGÜL"},
+	{isim : "Serkant", soyisim: "TURGUT"}];
+
+
+	var jsonVeri = JSON.stringify(kisiler);
+	var veri = JSON.parse(jsonVeri);
+
+	function test() {
+		
+		for (var i = 0; i<veri.length;  i++)
+		{
+			var satir = "<tr>";
+			satir += "<td>" + veri[i].isim + "</td>";
+			satir += "<td>" + veri[i].soyisim + "</td>";
+
+			satir += "</tr>";
+
+			$("#liste").append(satir);
+
+		}
+	};
+
+</script>
+
+</body>
+</html>
